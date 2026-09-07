@@ -1,24 +1,29 @@
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
+plugins {
+    id 'com.android.library'
+}
+
+group 'io.paratoner.flutter_tesseract_ocr'
+version '1.0'
+
+repositories {
+    google()
+    mavenCentral()
+}
+
+android {
+    namespace 'io.paratoner.flutter_tesseract_ocr'
+    compileSdk 36
+
+    defaultConfig {
+        minSdk 21
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
+    }
+
+    lint {
+        disable 'InvalidPackage'
     }
 }
 
-val newBuildDir: Directory =
-    rootProject.layout.buildDirectory
-        .dir("../../build")
-        .get()
-rootProject.layout.buildDirectory.value(newBuildDir)
-
-subprojects {
-    val newSubprojectBuildDir: Directory = newBuildDir.dir(project.name)
-    project.layout.buildDirectory.value(newSubprojectBuildDir)
-}
-subprojects {
-    project.evaluationDependsOn(":app")
-}
-
-tasks.register<Delete>("clean") {
-    delete(rootProject.layout.buildDirectory)
+dependencies {
+    api files('libs/tesseract4android-release.aar')
 }
