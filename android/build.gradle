@@ -25,5 +25,5 @@ android {
 }
 
 dependencies {
-    api files('libs/tesseract4android-release.aar')
+    api files('libs/tesseract4android.jar')
 }
