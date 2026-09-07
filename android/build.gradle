@@ -8,10 +8,6 @@ version '1.0'
 repositories {
     google()
     mavenCentral()
-
-    flatDir {
-        dirs 'libs'
-    }
 }
 
 android {
@@ -29,5 +25,5 @@ android {
 }
 
 dependencies {
-    api(name: 'tesseract4android-release', ext: 'aar')
+    api files('libs/tesseract4android-release.aar')
 }
