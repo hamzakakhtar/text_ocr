@@ -1,9 +1,9 @@
-group 'io.paratoner.flutter_tesseract_ocr'
-version '1.0'
-
 plugins {
     id 'com.android.library'
 }
+
+group 'io.paratoner.flutter_tesseract_ocr'
+version '1.0'
 
 repositories {
     google()
